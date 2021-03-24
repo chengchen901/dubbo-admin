@@ -29,7 +29,16 @@ public class Constants {
     public static final String PATH_SEPARATOR = "/";
     public static final String GROUP_KEY = "group";
     public static final String NAMESPACE_KEY = "namespace";
-    public static final String CONFIG_KEY = "config" + PATH_SEPARATOR + "dubbo";
+    /**
+     * DubboAdmin 修复配置管理创建ZK节点位置为/dubbo/config/dubbo/application/dubbo.properties bug，修改后的路径为/dubbo/config/application/dubbo.properties，对应dubbo 2.7.x读取ZK配置路径
+     *
+     * 原本配置：public static final String CONFIG_KEY = "config" + PATH_SEPARATOR + "dubbo";
+     *
+     * 修改原因：dubbo2.7.x启动时读取配置路径是在config下
+     *
+     * @author Hash
+     */
+    public static final String CONFIG_KEY = "config";
     public static final String DUBBO_PROPERTY = "dubbo.properties";
     public static final String PROVIDER_SIDE = "provider";
     public static final String CONSUMER_SIDE = "consumer";
